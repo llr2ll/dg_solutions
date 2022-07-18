@@ -1,5 +1,5 @@
 import { createPool } from "mysql2/promise"
-  
+
 const pool = createPool({
 	host: 't3071viq0k1g.aws-sa-east-1-1.psdb.cloud',
 	user: '1qav6sezikas',
