@@ -3,12 +3,12 @@
 	<Header />
 
 	<section class="container">
-		<h2 id="titulo-form">Editar: {{ this.$route.params.name }}</h2>
+		<h2 id="titulo-form">Editar: {{ name }}</h2>
 		<ul id="mensagens-erro"></ul>
 		<form id="form-adiciona">
 			<div class='spacer'>
 				<label for="nome">Nome:</label>
-				<input id="nome" name="nome" type="text" :placeholder='this.$route.params.name' class="campo">
+				<input id="nome" name="nome" type="text" :placeholder='name' class="campo">
 			</div>
 			<div class='spacer'>
 				<label for="Nacimento">Data de Nacimento:</label>
@@ -27,12 +27,21 @@
 
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
+import { createDOMCompilerError } from '@vue/compiler-dom'
 
 export default {
 	components: {
 		Header,
 		Button
 	},
+	data(){
+		return{
+
+		}
+	},
+	created(){
+      this.name = this.$route.params.name
+	}
 }
 
 </script>

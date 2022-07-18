@@ -1,16 +1,9 @@
-const express = require("express");
+(async () =>{
 
-const PORT = process.env.PORT || 3001;
-
-
-const getProducts = async (req, res) => {
-	try {
-		const [result] = await pool.query("SELECT * FROM produto");
-
-		return res.status(200).json(result);
-	} catch (error) {
-		return res.status(500).json({
-			message: error.message,
-		});
-	}
-};
+    const db = require("./db.js");
+    //await db.insertUsuarios({nome: 'Ricardo',dataNascimento: "2000-10-25"})
+    //await db.updateUsuarios(5 ,{nome: 'Zeca',dataNascimento: "2002-10-25"})
+    //await db.deleteUsuarios(5)
+    const clients = await db.selectUsuarios();
+    console.log(clients)
+})();

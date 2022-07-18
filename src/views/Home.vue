@@ -64,64 +64,54 @@ export default {
 	}
 }
 
+/*
+var campoFiltro = document.querySelector("#filtrar-tabela");
+
+campoFiltro.addEventListener("input", function() {
+    var pacientes = document.querySelectorAll(".paciente");
+
+    if (this.value.length > 0) {
+        for (var i = 0; i < pacientes.length; i++) {
+            var paciente = pacientes[i];
+            var tdNome = paciente.querySelector(".info-nome");
+            var nome = tdNome.textContent;
+            var expressao = new RegExp(this.value, "i");
+
+            if (!expressao.test(nome)) {
+                paciente.classList.add("invisivel");
+            } else {
+                paciente.classList.remove("invisivel");
+            }
+        }
+    } else {
+        for (var i = 0; i < pacientes.length; i++) {
+            var paciente = pacientes[i];
+            paciente.classList.remove("invisivel");
+        }
+    }
+});
+*/
 </script>
 
 <style scoped>
-.container {
-	width: 60%;
-	height: 100%;
-	margin: 5% auto;
-}
+.container {width: 60%; height: 100%; margin: 5% auto;}
 
-table {
-	width: 100%;
-	margin-bottom: .5em;
-	table-layout: fixed;
-}
+table {width: 100%; margin-bottom: .5em; table-layout: fixed;}
 
-td,
-th {
-	padding: .7em;
-	margin: 0;
-	border: 1px solid #ccc;
-	text-align: center;
-}
+td,th {padding: .7em; margin: 0; border: 1px solid #ccc; text-align: center;}
 
-th {
-	font-weight: bold;
-	background-color: #EEE;
-}
+th {font-weight: bold; background-color: #EEE;}
 
-.info-nascimento {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	justify-content: space-between;
-}
+.info-nascimento {display: flex; align-items: center; justify-content: center; justify-content: space-between;}
 
-.img {
-	width: 20px;
-	height: 20px;
-}
+.img {width: 20px; height: 20px;}
 
-.btns {
-	margin: 0 5px;
-}
+.btns {margin: 0 5px;}
 
-section {
-	margin: 2em 0;
-	overflow: hidden;
-}
+section {margin: 2em 0; overflow: hidden;}
 
-section h2 {
-	font-size: 3em;
-	display: block;
-	padding-bottom: .5em;
-	border-bottom: 1px solid #ccc;
-	margin-bottom: .5em;
-}
+section h2 {font-size: 3em; display: block; padding-bottom: .5em; border-bottom: 1px solid #ccc; margin-bottom: .5em;}
 
-.invisivel {
-	display: none;
-}
+.invisivel {display: none;}
+
 </style>  
