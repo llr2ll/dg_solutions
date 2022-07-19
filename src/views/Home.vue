@@ -9,7 +9,7 @@
 			<label for="filtrar-tabela">Filtre:</label>
 			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome">
 
-			<Table>
+			<table>
 				<thead>
 					<tr>
 						<th>Nome</th>
@@ -22,17 +22,18 @@
 					<tr v-for='usuario in usuarios' :key='usuario.id' class="paciente" id="primeiro-paciente">
 						<td class="info-nome">{{ usuario.name }}</td>
 						<td class="info-nascimento">
-							<p>{{ usuario.date }}</p>
+							<p>{{ usuario.date.split('-').reverse().join('/') }}</p>
 							<div>
-								<router-link :to="`/edit/${usuario.name}`"><button class='btns'><img class='img'
-											src='/pencil.svg' /></button></router-link>
-								<button class='btns'><img class='img' src='/trash.png' /></button>
+								<router-link :to="{name: 'Edit', params: {name: usuario.name, date: usuario.date}}" birthday='usuario.date'>
+									<button class='btns'><img class='img' src='/pencil.svg' /></button>
+								</router-link>
+								<button  class='btns'><img class='img' src='/trash.png' /></button>
 							</div>
 						</td>
 					</tr>
 
 				</tbody>
-			</Table>
+			</table>
 
 			<span id="erro-ajax" class="invisivel">Erro ao buscar os pacientes</span>
 
@@ -44,7 +45,7 @@
 </template>
 
 <script>
-
+	
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
 
@@ -56,9 +57,9 @@ export default {
 	data() {
 		return {
 			usuarios: [
-				{ id: 1, name: 'Paulo', date: '08/12/1990' },
-				{ id: 2, name: 'Erika', date: '10/03/1977' },
-				{ id: 3, name: 'Roger', date: '22/08/1984' }
+				{ id: 1, name: 'Paulo', date: '1990-09-08' },
+				{ id: 2, name: 'Erika', date: '1977-03-10' },
+				{ id: 3, name: 'Roger', date: '1984-08-22' }
 			]
 		}
 	}

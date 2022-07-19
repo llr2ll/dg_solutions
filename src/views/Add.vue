@@ -39,66 +39,30 @@ export default {
 </script>
 
 <style>
-section h2 {
-	font-size: 3em;
-	display: block;
-	padding-bottom: .5em;
-	border-bottom: 1px solid #ccc;
-	margin-bottom: .5em;
-}
 
-.container {
-	width: 60%;
-	height: 100%;
-	margin: 5% auto;
-}
+section h2 {font-size: 3em; display: block; padding-bottom: .5em; border-bottom: 1px solid #ccc; margin-bottom: .5em;}
 
-.campo {
-	margin: 0;
-	padding-bottom: 1em;
-	width: 100%;
-	border: 1px solid #ccc;
-	padding: .7em;
-	width: 100%;
-}
+.container {width: 60%; height: 100%; margin: 5% auto;}
 
-#mensagens-erro {
-	color: red;
-}
+.campo {margin: 0; padding-bottom: 1em; width: 100%; border: 1px solid #ccc; padding: .7em; width: 100%;}
 
-.spacer {
-	margin-top: 2%;
-}
+#mensagens-erro {color: red;}
+
+.spacer {margin-top: 2%;}
 
 
 
 
-label {
-	color: #555;
-	display: block;
-	margin-bottom: .2em;
-}
+label {color: #555; display: block; margin-bottom: .2em;}
 
-.adicionar {
-	margin-top: 30px;
-}
+.adicionar {margin-top: 30px;}
 
-.campo-invalido {
-	border: 1px solid red;
-}
+.campo-invalido {border: 1px solid red;}
 
-.paciente-invalido {
-	background-color: lightcoral;
-}
+.paciente-invalido {background-color: lightcoral;}
 
-.fadeOut {
-	opacity: 0;
-	transition: 0.5s;
-}
+.fadeOut {opacity: 0; transition: 0.5s;}
 
-#filtrar-tabela {
-	width: 200px;
-	height: 35px;
-	margin-bottom: 10px;
-}
+#filtrar-tabela {width: 200px; height: 35px; margin-bottom: 10px;}
+
 </style>

@@ -1,0 +1,1 @@
+1-Alterar chave em src/db/db.js do banco exemplo: 'mysql://user:password@localhost:3006/schema'
