@@ -1,7 +1,7 @@
 async function connect (){
 	if(global.connection && global.connection.state !== 'disconected'){return global.connection;}
 	const mysql = require("mysql2/promise")
-	const connection = await mysql.createConnection('COLOCAR CHAVE DO BANCO AQUI')
+	const connection = await mysql.createConnection('mysql://xn3nauq92r57:pscale_pw_nO0mASSiYCtrX9ZSGIe-hYEsjty09xqWNNxyL3lOp2Y@t3071viq0k1g.aws-sa-east-1-1.psdb.cloud/dg_solutions?ssl={"rejectUnauthorized":true}')
 	global.connection = connection;
 	return connection;
 }

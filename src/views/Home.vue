@@ -50,10 +50,6 @@ import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
 import axios from 'axios'
 
-	axios.get('http://localhost:8080/')
-	.then( (response) => { console.log(response.data) } )
-	.catch( () => { } )
-
 export default {
 	components: {
 		Header,
@@ -61,42 +57,16 @@ export default {
 	},
 	data() {
 		return {
-			usuarios: [
-				{ id: 1, name: 'Paulo', date: '1990-09-08' },
-				{ id: 2, name: 'Erika', date: '1977-03-10' },
-				{ id: 3, name: 'Roger', date: '1984-08-22' }
-			]
+			usuarios
 		}
+	},
+	mounted () {
+		axios.get('/usuarios')
+             .then((res) => { var usuarios = res.data })
+  			 .catch((error) => {console.log(error);});
 	}
 }
 
-/*
-var campoFiltro = document.querySelector("#filtrar-tabela");
-
-campoFiltro.addEventListener("input", function() {
-    var pacientes = document.querySelectorAll(".paciente");
-
-    if (this.value.length > 0) {
-        for (var i = 0; i < pacientes.length; i++) {
-            var paciente = pacientes[i];
-            var tdNome = paciente.querySelector(".info-nome");
-            var nome = tdNome.textContent;
-            var expressao = new RegExp(this.value, "i");
-
-            if (!expressao.test(nome)) {
-                paciente.classList.add("invisivel");
-            } else {
-                paciente.classList.remove("invisivel");
-            }
-        }
-    } else {
-        for (var i = 0; i < pacientes.length; i++) {
-            var paciente = pacientes[i];
-            paciente.classList.remove("invisivel");
-        }
-    }
-});
-*/
 </script>
 
 <style scoped>
