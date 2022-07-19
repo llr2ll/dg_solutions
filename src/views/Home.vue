@@ -27,7 +27,7 @@
 								<router-link :to="{name: 'Edit', params: {name: usuario.name, date: usuario.date}}" birthday='usuario.date'>
 									<button class='btns'><img class='img' src='/pencil.svg' /></button>
 								</router-link>
-								<button  class='btns'><img class='img' src='/trash.png' /></button>
+								<button  @click="alert()" class='btns'><img class='img' src='/trash.png' /></button>
 							</div>
 						</td>
 					</tr>
@@ -48,6 +48,11 @@
 	
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
+import axios from 'axios'
+
+	axios.get('http://localhost:8080/')
+	.then( (response) => { console.log(response.data) } )
+	.catch( () => { } )
 
 export default {
 	components: {
