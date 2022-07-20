@@ -12,7 +12,7 @@
 </script>
 <style scoped>
 
-header {background-color: #333; height: 3em; color: #FFF; margin-bottom: 1em;}
+header {background-color: #101084; height: 3em; color: #FFF; margin-bottom: 1em;}
 
 header h1 {font-size: 2em; display: inline-block; vertical-align: middle;}
 

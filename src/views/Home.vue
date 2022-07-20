@@ -19,12 +19,12 @@
 
 				<tbody id="tabela-pacientes">
 
-					<tr v-for='usuario in usuarios' :key='usuario.id' class="paciente" id="primeiro-paciente">
-						<td class="info-nome">{{ usuario.name }}</td>
+					<tr v-for='user in users' :key='user.id' class="paciente" id="primeiro-paciente">
+						<td class="info-nome">{{ user.nome }}</td>
 						<td class="info-nascimento">
-							<p>{{ usuario.date.split('-').reverse().join('/') }}</p>
+							<p>{{ user.dataNascimento.split('-').reverse().join('/') }}</p>
 							<div>
-								<router-link :to="{name: 'Edit', params: {name: usuario.name, date: usuario.date}}" birthday='usuario.date'>
+								<router-link :to="{name: 'Edit', params: {name: user.nome, date: user.dataNascimento, id: user.id}}" birthday='usuario.date'>
 									<button class='btns'><img class='img' src='/pencil.svg' /></button>
 								</router-link>
 								<button  @click="alert()" class='btns'><img class='img' src='/trash.png' /></button>
@@ -48,7 +48,7 @@
 	
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
-import axios from 'axios'
+import {Get} from '../service/config'
 
 export default {
 	components: {
@@ -57,13 +57,11 @@ export default {
 	},
 	data() {
 		return {
-			usuarios
+			users:[]
 		}
 	},
 	mounted () {
-		axios.get('/usuarios')
-             .then((res) => { var usuarios = res.data })
-  			 .catch((error) => {console.log(error);});
+		Get.then(Response => {this.users = Response})
 	}
 }
 

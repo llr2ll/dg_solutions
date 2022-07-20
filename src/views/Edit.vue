@@ -7,12 +7,12 @@
 		<ul id="mensagens-erro"></ul>
 		<form @submit="enviarFormulário" id="form-adiciona">
 			<div class='spacer'>
-				<label for="nome">Nome:</label>
-				<input id="nome" name="nome" type="text"  :value='name' class="campo" required>
+				<label for="name">Nome:</label>
+				<input id="name" name="name" type="text"  :value='name' class="campo" required>
 			</div>
 			<div class='spacer'>
-				<label for="Nacimento">Data de Nacimento:</label>
-				<input id="Nacimento"  name="Nacimento" type="date" :value='date' class="campo" required>
+				<label for="date">Data de Nacimento:</label>
+				<input id="date"  name="date" type="date" :value='date' class="campo" required>
 			</div>
 
 			<router-link class="router" to="/"><Button msg='Editar' /></router-link>
@@ -35,6 +35,7 @@ export default {
 	created(){
       this.name = this.$route.params.name
 	  this.date = this.$route.params.date	
+	  this.id = this.$route.params.id
 	},
 	methods:{
 		enviarFormulário(){
