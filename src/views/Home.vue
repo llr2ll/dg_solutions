@@ -6,36 +6,30 @@
 		<section class="container">
 
 			<h2>Listar Pessoas</h2>
-			<label for="filtrar-tabela">Filtre:</label>
-			<input type="text" name="filtro" id="filtrar-tabela" placeholder="Digite o nome">
-
 			<table>
+
 				<thead>
 					<tr>
 						<th>Nome</th>
 						<th>Data de Nacimento</th>
 					</tr>
 				</thead>
-
-				<tbody id="tabela-pacientes">
-
-					<tr v-for='user in users' :key='user.id' class="paciente" id="primeiro-paciente">
+				<tbody>
+					<tr v-for='user in users' :key='user.id'>
 						<td class="info-nome">{{ user.nome }}</td>
 						<td class="info-nascimento">
 							<p>{{ user.dataNascimento.split('-').reverse().join('/') }}</p>
 							<div>
-								<router-link :to="{name: 'Edit', params: {name: user.nome, date: user.dataNascimento, id: user.id}}" birthday='usuario.date'>
+								<router-link :to="{name: 'Edit', params: {name: user.nome, date: user.dataNascimento, id: user.id}}">
 									<button class='btns'><img class='img' src='/pencil.svg' /></button>
 								</router-link>
-								<button  @click="alert()" class='btns'><img class='img' src='/trash.png' /></button>
+								<button @click="deleteData(user.id)" class='btns'><img class='img' src='/trash.png' /></button>
 							</div>
 						</td>
 					</tr>
-
 				</tbody>
-			</table>
 
-			<span id="erro-ajax" class="invisivel">Erro ao buscar os pacientes</span>
+			</table>
 
 			<router-link class="router" to="/add"><Button msg='Criar' /></router-link>
 
@@ -48,7 +42,7 @@
 	
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
-import {Get} from '../service/config'
+import axios from 'axios'
 
 export default {
 	components: {
@@ -57,11 +51,20 @@ export default {
 	},
 	data() {
 		return {
-			users:[]
+			users:[],
+
+			showData(){
+				axios.get('/usuarios')
+				.then((res) => { return this.users = res.data })
+				.catch((error) => {console.log(error);});
+			},
+			deleteData(id){
+				axios.delete(`/usuarios/${id}`).then((res) => { this.showData() })
+			}
 		}
 	},
 	mounted () {
-		Get.then(Response => {this.users = Response})
+		this.showData()
 	}
 }
 
@@ -85,7 +88,5 @@ th {font-weight: bold; background-color: #EEE;}
 section {margin: 2em 0; overflow: hidden;}
 
 section h2 {font-size: 3em; display: block; padding-bottom: .5em; border-bottom: 1px solid #ccc; margin-bottom: .5em;}
-
-.invisivel {display: none;}
 
 </style>  

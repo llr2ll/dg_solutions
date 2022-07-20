@@ -3,19 +3,18 @@
 	<Header />
 
 	<section class="container">
-		<h2 id="titulo-form">Editar: {{ name }}</h2>
-		<ul id="mensagens-erro"></ul>
-		<form @submit="enviarFormulário" id="form-adiciona">
+		<h2>Editar: {{ name }}</h2>
+		<form @submit.prevent="edit">
 			<div class='spacer'>
-				<label for="name">Nome:</label>
-				<input id="name" name="name" type="text"  :value='name' class="campo" required>
+				<label>Nome:</label>
+				<input name="name" type="text" v-model="name" :value='name' class="campo" required>
 			</div>
 			<div class='spacer'>
-				<label for="date">Data de Nacimento:</label>
-				<input id="date"  name="date" type="date" :value='date' class="campo" required>
+				<label>Data de Nacimento:</label>
+				<input name="born" type="date" v-model="born" :value='date' class="campo" required>
 			</div>
 
-			<router-link class="router" to="/"><Button msg='Editar' /></router-link>
+			<Button @click="goToHome()" msg='Editar' />
 
 		</form>
 	</section>
@@ -38,9 +37,12 @@ export default {
 	  this.id = this.$route.params.id
 	},
 	methods:{
-		enviarFormulário(){
-			console.log('formulario enviado')
-		}
+		edit(){
+			console.log(this.name,this.born,this.id)
+		},
+		goToHome(){
+   		this.$router.push('/'); 
+      }
 	}
 }
 
@@ -53,8 +55,6 @@ section h2 {font-size: 3em; display: block; padding-bottom: .5em; border-bottom:
 .container {width: 60%; height: 100%; margin: 5% auto;}
 
 .campo {margin: 0; padding-bottom: 1em; width: 100%; border: 1px solid #ccc; padding: .7em; width: 100%;}
-
-#mensagens-erro {color: red;}
 
 .spacer {margin-top: 2%;}
 
