@@ -2,12 +2,11 @@
 2- npm run build
 3- Alterar chave em src/db/db.js do banco EXEMPLO:
 
-        host: 'localhost',
-        user: 'root',
-        password: 'p@ssw0rd',
-        port: 3006,
-        database: 'dg_solutions',
-        ssl: {}  
+        host: '127.0.0.1',
+	user: 'root',
+	password: 'p@ssw0rd',
+	port: 3306,
+	database: 'dg_solutions',
 
 4- Descer 2 pastas src/db EXEMPLO: C:\Users\Raphael\Documents\vue-app\src\db>
 5- node index
