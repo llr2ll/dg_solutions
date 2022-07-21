@@ -14,7 +14,7 @@
 				<label>Data de Nacimento:</label>
 				<input name="born" type="date" v-model="born" class="campo" required>
 			</div>
-			<Button @click="goToHome()" msg='Adicionar' />
+			<Button msg='Adicionar' />
 		</form>
 
 	</section>
@@ -34,9 +34,9 @@ export default {
 	},
 	methods:{
 		save(){
-			var name = this.name
-			var born = this.born
-			axios.post('/usuarios/insert',{nome: name,dataNascimento: born}).then()
+			axios.post('/usuarios',{nome: this.name, dataNascimento: this.born})
+			     .then(() => { this.goToHome() })
+				 .catch((error) => {console.log(error);});
 		},
 		goToHome(){
    		this.$router.push('/'); 

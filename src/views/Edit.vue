@@ -7,14 +7,14 @@
 		<form @submit.prevent="edit">
 			<div class='spacer'>
 				<label>Nome:</label>
-				<input name="name" type="text" v-model="name" :value='name' class="campo" required>
+				<input name="name" type="text" :value='name' class="campo" required>
 			</div>
 			<div class='spacer'>
 				<label>Data de Nacimento:</label>
-				<input name="born" type="date" v-model="born" :value='date' class="campo" required>
+				<input name="born" type="date" :value='date' class="campo" required>
 			</div>
 
-			<Button @click="goToHome()" msg='Editar' />
+			<Button msg='Editar' />
 
 		</form>
 	</section>
@@ -25,6 +25,7 @@
 
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
+import axios from 'axios' 
 
 export default {
 	components: {
@@ -38,11 +39,13 @@ export default {
 	},
 	methods:{
 		edit(){
-			console.log(this.name,this.born,this.id)
+			axios.put(`/usuarios/:${id}`,{nome: this.name, dataNascimento: this.born})
+			     .then(() => { this.goToHome() })
+				 .catch((error) => {console.log(error);});
 		},
 		goToHome(){
    		this.$router.push('/'); 
-      }
+      }	
 	}
 }
 

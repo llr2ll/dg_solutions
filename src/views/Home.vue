@@ -52,14 +52,15 @@ export default {
 	data() {
 		return {
 			users:[],
-
-			showData(){
-				axios.get('/usuarios')
-				.then((res) => { return this.users = res.data })
-				.catch((error) => {console.log(error);});
+	  async showData() {
+		  await axios.get('/usuarios')
+					 .then((res) => { return this.users = res.data })
+					 .catch((error) => { console.log(error) });
 			},
-			deleteData(id){
-				axios.delete(`/usuarios/${id}`).then((res) => { this.showData() })
+			deleteData(id) {
+				axios.delete(`/usuarios/${id}`)
+					 .then(() => { this.showData() })
+					 .catch((error) => {console.log(error);});
 			}
 		}
 	},

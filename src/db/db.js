@@ -1,35 +1,12 @@
-async function connect (){
-	if(global.connection && global.connection.state !== 'disconected'){return global.connection;}
-	const mysql = require("mysql2/promise")
-	const connection = await mysql.createConnection(' ')
-	global.connection = connection;
-	return connection;
-}
+const mysql = require("mysql2/promise")
 
-async function selectUsuarios(){
-	const users = await connect();
-	const rows = users.query('SELECT *,DATE_FORMAT(dataNascimento,"%Y-%m-%d") as dataNascimento FROM usuario');
-	return await rows;
-}
+const pool = mysql.createPool({
+	host: 't3071viq0k1g.aws-sa-east-1-1.psdb.cloud',
+	user: 'ijfl5ha31x4n',
+	password: 'pscale_pw_5Mwniz7bXIMoIqWdrVYlj77K84wQs6ddJAr7iXjCaq0',
+	port: 3306,
+	database: 'dg_solutions',
+	ssl: {} 
+})
 
-async function insertUsuarios(user){
-	const users = await connect();
-	const sql = 'INSERT INTO usuario(nome,dataNascimento) VALUES (?,?);';
-	const values = [user.nome, user.dataNascimento];
-	return await users.query(sql, values);
-}
-
-async function updateUsuarios(id, user){
-	const users = await connect();
-	const sql = 'UPDATE usuario SET nome=?, dataNascimento=? WHERE id=?';
-	const values = [user.nome, user.dataNascimento, id];
-	return await users.query(sql, values);
-}
-
-async function deleteUsuarios(id){
-	const users = await connect();
-	const sql = 'Delete FROM usuario WHERE id=?';
-	return await users.query(sql, [id]);
-}
-
-module.exports = {selectUsuarios, insertUsuarios, updateUsuarios, deleteUsuarios}
+module.exports = pool
