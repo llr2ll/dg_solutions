@@ -1,1 +1,4 @@
-1-Alterar chave em src/db/db.js do banco exemplo: 'mysql://user:password@localhost:3006/schema'
+1- Alterar chave em src/db/db.js do banco exemplo: 'mysql://user:password@localhost:3006/schema'
+2- npm i 
+3- npm run build 
+4- 

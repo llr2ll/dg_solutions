@@ -7,11 +7,11 @@
 		<form @submit.prevent="edit">
 			<div class='spacer'>
 				<label>Nome:</label>
-				<input name="name" type="text" :value='name' class="campo" required>
+				<input name="name" type="text" v-model="name"  class="campo" required>
 			</div>
 			<div class='spacer'>
 				<label>Data de Nacimento:</label>
-				<input name="born" type="date" :value='date' class="campo" required>
+				<input name="born" type="date" v-model="date"  class="campo" required>
 			</div>
 
 			<Button msg='Editar' />
@@ -39,7 +39,7 @@ export default {
 	},
 	methods:{
 		edit(){
-			axios.put(`/usuarios/:${id}`,{nome: this.name, dataNascimento: this.born})
+			axios.put(`/usuarios/${this.id}`,{nome: this.name, dataNascimento: this.date})
 			     .then(() => { this.goToHome() })
 				 .catch((error) => {console.log(error);});
 		},

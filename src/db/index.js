@@ -18,19 +18,15 @@ const pool = require('./db.js')
 
   
     app.put('/usuarios/:id', async(req,res) =>{
-    
         const nome = req.body.nome
         const  dataNascimento  = req.body.dataNascimento
         const id = req.params.id 
-        
-        console.log(id,nome,dataNascimento)
-        /*
+
         try {
-          const [result] = await pool.query('UPDATE usuario SET nome=?, dataNascimento=? WHERE id=?',{ nome, dataNascimento,id });
+          const [result] = await pool.query('UPDATE usuario SET nome=?, dataNascimento=? WHERE id=?',[nome, dataNascimento,id ]);
           return res.status(200).json(result);
         } 
         catch (error) { return res.status(500).json({ message: error.message }) }
-        */
     })
     
 
