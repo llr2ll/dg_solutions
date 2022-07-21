@@ -1,4 +1,14 @@
-1- Alterar chave em src/db/db.js do banco exemplo: 'mysql://user:password@localhost:3006/schema'
-2- npm i 
-3- npm run build 
-4- 
+1- npm i 
+2- npm run build
+3- Alterar chave em src/db/db.js do banco EXEMPLO:
+
+        host: 'localhost',
+        user: 'root',
+        password: 'p@ssw0rd',
+        port: 3006,
+        database: 'dg_solutions',
+        ssl: {}  
+
+4- Descer 2 pastas src/db EXEMPLO: C:\Users\Raphael\Documents\vue-app\src\db>
+5- node index
+6- Parabéns a aplicação está rodando em : http://localhost:3000
