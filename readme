@@ -1,13 +1,6 @@
 1- npm i 
 2- npm run build
-3- Alterar chave em src/db/db.js do banco EXEMPLO:
-
-        host: '127.0.0.1',
-	user: 'root',
-	password: 'p@ssw0rd',
-	port: 3306,
-	database: 'dg_solutions',
-
-4- Descer 2 pastas src/db EXEMPLO: C:\Users\Raphael\Documents\vue-app\src\db>
+4- entrar pasta db EXEMPLO: C:\Users\GDM Raphael\Documents\dg_solutions\db>
+3- colocar string de conexão .env	
 5- node index
 6- Parabéns a aplicação está rodando em : http://localhost:3000
