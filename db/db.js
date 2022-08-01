@@ -10,6 +10,4 @@ const pool = mysql.createPool({
 	//ssl: {} 
 })
 
-console.log(process.env.host, process.env.user, process.env.password, process.env.database)
-
 module.exports = pool

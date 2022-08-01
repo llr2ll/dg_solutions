@@ -1,6 +1,7 @@
 1- npm i 
 2- npm run build
-4- entrar na pasta db EXEMPLO: C:\Users\GDM Raphael\Documents\dg_solutions\db>
-3- colocar string de conexão .env	
-5- node index
-6- Parabéns a aplicação está rodando em : http://localhost:3000
+4- descer no diretorio db EXEMPLO: cd db
+3- colocar string de conexão em  db/.env	
+5- criar o database usando o script em db.sql
+6- node index
+7- Parabéns a aplicação está rodando em : http://localhost:3000
