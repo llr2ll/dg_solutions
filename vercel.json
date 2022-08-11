@@ -13,7 +13,7 @@
   "routes": [
     { "src": "/(.*)", "dest": "/db/index.js" },
     { "handle": "filesystem" },
-    { "src": "/usuarios", "dest": "/db/index.js" },
+    { "src": "/usuarios/(.*)", "dest": "/db/index.js" },
     { "src": "/usuarios/:id", "dest": "/db/index.js" }
   ]
 }
