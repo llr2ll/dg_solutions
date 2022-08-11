@@ -8,16 +8,12 @@
     {
       "src": "/db/index.js",
       "use": "@now/node"
-    },
-    {
-      "src": "/dist/*",
-      "use": "@now/static"
     }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/db/index.js" },
     { "handle": "filesystem" },
-    { "src": "/add/(.*)", "dest": "/src/views/add" },
-    { "src": "/edit/(.*)", "dest": "/src/views/edit" },
+    { "src": "/usuarios", "dest": "/db/index.js" },
+    { "src": "/usuarios/:id", "dest": "/db/index.js" }
   ]
 }
