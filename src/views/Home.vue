@@ -43,6 +43,7 @@
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
 import axios from 'axios'
+import { baseUrl } from '../App.vue'
 
 export default {
 	components: {
@@ -53,12 +54,12 @@ export default {
 		return {
 			users:[],
 	  async showData() {
-		  await axios.get('/usuarios')
+		  await axios.get(baseUrl)
 					 .then((res) => { return this.users = res.data })
 					 .catch((error) => { console.log(error) });
 			},
 			deleteData(id) {
-				axios.delete(`/usuarios/${id}`)
+				axios.delete(`${baseUrl}/usuarios/${id}`)
 					 .then(() => { this.showData() })
 					 .catch((error) => {console.log(error);});
 			}

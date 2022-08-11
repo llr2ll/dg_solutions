@@ -25,7 +25,8 @@
 
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
-import axios from 'axios' 
+import axios from 'axios'
+import { baseUrl } from '../App.vue'
 
 export default {
 	components: {
@@ -39,7 +40,7 @@ export default {
 	},
 	methods:{
 		edit(){
-			axios.put(`/usuarios/${this.id}`,{nome: this.name, dataNascimento: this.date})
+			axios.put(`${baseUrl}/usuarios/${this.id}`,{nome: this.name, dataNascimento: this.date})
 			     .then(() => { this.goToHome() })
 				 .catch((error) => {console.log(error);});
 		},

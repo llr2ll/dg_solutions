@@ -2,6 +2,9 @@
   <router-view />
 </template>
 
+<script>
+  export const baseUrl = 'https://dg-solutions-back-end.vercel.app';
+</script>
 <style>
 
 html, body, div, span, applet, object, iframe,

@@ -26,6 +26,7 @@
 import Header from '../components/Header.vue'
 import Button from '../components/Button.vue'
 import axios from 'axios'
+import { baseUrl } from '../App.vue'
 
 export default {
 	components: {
@@ -34,7 +35,7 @@ export default {
 	},
 	methods:{
 		save(){
-			axios.post('/usuarios',{nome: this.name, dataNascimento: this.born})
+			axios.post(baseUrl,{nome: this.name, dataNascimento: this.born})
 			     .then(() => { this.goToHome() })
 				 .catch((error) => {console.log(error);});
 		},
