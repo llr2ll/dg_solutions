@@ -11,9 +11,9 @@
     }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/db/index.js" },
+    { "src": "/(.*)", "use": "/db/index.js" },
     { "handle": "filesystem" },
-    { "src": "/usuarios/(.*)", "dest": "/db/index.js" },
-    { "src": "/usuarios/:id", "dest": "/db/index.js" }
+    { "src": "/usuarios/(.*)", "use": "/db/index.js" },
+    { "src": "/usuarios/:id", "use": "/db/index.js" }
   ]
 }
